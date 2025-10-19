@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Apply_loan</title>
+        {% include('side.html') %}
+        <style>
+            *{
+                box-sizing: border-box;
+         }
+        body{
+            text-align:center;
+        }
+        .box{
+             
+             margin-bottom: 20px;
+        }
+            .box label{
+                display: block;
+                margin: auto;
+            }
+            .box input{
+                width: 30%;
+                padding: 10px;
+                font-weight: bold;
+            }
+             .box5 label{
+                display: block;
+                margin: auto;
+            }
+            .box5 input{
+                width: 30%;
+                padding: 10px;
+                font-weight: bold;
+            }
+            select
+            {
+                 width: 30%;
+                padding: 10px;
+                font-weight: bold;
+            }
+            .box button{
+                width: 20%;
+                padding: 10px;
+                margin-top: 20px;
+            
+            }
+           
+            .login-container{
+                width: 50%;
+                margin:auto;
+                padding-bottom:10px ;
+                padding-top: 10px;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div class="box_container">
+        <h2>Apply for a Loan</h2>
+    <form method="POST" action='/submit_loan'>
+        <!-- <div class="box">
+            <label>User ID</label>
+            <input type="text" name="user_id">
+        </div> -->
+        <div class="box">
+            <label>Loan Type:</label>
+            <select name="loan_type">
+                <option   value=" "> select loan type</option>
+                <option   value="Personal">Personal loan</option>
+                <option   value="Home">Home loan</option>
+                <option   value="Education">Education loan</option>
+                <option   value="Business">Business  loan</option>
+            </select>
+        </div>
+        <div class="box">
+              <label>Amount:</label>
+            <input type="number" name="amount" placeholder="Amount">
+        </div>
+        <div class="box">
+            <label>Duration:</label>
+            <select name="duration">
+                <option   value=" "> select</option>
+                <option   value="1 year">1 year</option>
+                <option   value="2 year">2 year</option>
+                <option   value="3 year">3 year</option>
+            </select>
+        </div>
+        <div class="box3">
+            <label>Employment Status:</label>
+            <input type="radio" id="employed" value="employed" name="employment_status">Employed
+            <input type="radio" id="UnEmployed" value="UnEmployed" name="employment_status">UnEmployed
+            <!-- <input type="text" name="employment_status" placeholder="Employment Status"> -->
+        </div>
+        <div class="box5" style="display: none;">
+            <label>Income:</label>
+            <input type="number" name="income" placeholder="Monthly Income">
+        </div>
+        <div class="box">
+            <button type="submit">Submit</button>
+        </div>
+        <a href="/user_dasbord">Back to Dashboard</a>
+        <!-- <div class="box">
+           {% if role=='1' %}
+            <a href="/user_dasbord">Back to Dashboard</a>
+            {% else %}
+            <a href="/dasbord">Back to Dashboard</a>
+            {%endif%} -->
+        
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#employed').click(function() {
+                    $('.box5').show();
+                });
+                $('#UnEmployed').click(function() {
+                    $('.box5').hide();
+                });
+            });
+        </script>
+    </form>
+    </div>
+    </body>
+</html>

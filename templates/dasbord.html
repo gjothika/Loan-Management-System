@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dasbord</title>
+        {% include('side.html')%}
+        <style>
+            body{
+                text-align: center;
+            }
+            .container{
+                margin-top: 40px;
+                margin-left: 350px;
+            }
+            h2{
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/dasbord" method="POST">
+        <h2>Welcome,{{session['username']}}</h2>
+        <p>This is your loan admin dasbord</p>
+        <div class="container">
+        <table border="1" align="center">
+            <tr>
+                <th>S.No</th>
+                <th>Loan Type</th>
+                <th>Amount</th>
+                <th>Duration</th>
+                <th>Employment Status</th>
+                <th>Income</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>Application Status</th>
+            </tr> 
+            <tbody>
+              {% for i in data%}
+            <tr>
+              
+                <td>{{loop.index}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td><a href="/edit/{{i[0]}}">Edit</a>
+                {% if i[7]=='ACTIVE' %}
+                    <a href="/delete/{{i[0]}}" onclick="return alert('Are you sure?')">Delete</a>
+                {% else %}
+                   <a href="/active/{{i[0]}}" onclick="return alert('Are you sure?')">Active</a></td>
+                {% endif %}
+                <td>
+                    {% if i[8]=='Pending' %}
+                   <a href="/pending/{{i[0]}}" onclick="return alert('Are you sure?')">Pending</a>
+{%else%}
+<p>
+{{i[8]}}</p>
+{% endif %}
+                   
+                
+            </tr>
+               {% endfor %}
+               </tbody>
+        </table>
+        </div>
+        <br><br>
+        <!-- <a href="/logout" style="font-size: larger;">logout</a><br><br><br> -->
+        <!-- <a href="/apply_loan" style="font-size: larger;">apply loan</a> -->
+        </form>
+    </body>
+</html>

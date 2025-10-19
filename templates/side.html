@@ -1,0 +1,87 @@
+<nav class="sidebar">
+    <h1 class="sidebar-title">dash<span class="lite">lite</span></h1>
+    <h3 class="d2">Loan</h3>
+    <ul class="nav_list">
+        <li>
+      
+            {% if (session['role'])==1%}
+           
+            <a href="/user_dasbord" class="nav-link">
+                 <img src="{{url_for('static',filename='images/home.png')}}" alt="Home" class="icon">
+            Home</a>
+
+                {% else %}
+                 <a href="/dasbord" class="nav-link"><img src="{{url_for('static',filename='images/home.png')}}" alt="Home" class="icon">
+            Home</a>
+                {% endif %}
+
+           
+        </li>
+        <li>
+            <a href="/apply_loan" class="nav-link">
+                <img src="{{url_for('static',filename='images/apply.png')}}" alt="Home" class="icon">
+                Apply Loan</a>
+        </li>
+         
+        <li>
+            <a href="/logout" class="nav-link">
+                <img src="{{url_for('static',filename='images/logout.png')}}" alt="Home" class="icon">
+                Logout</a>
+        </li>
+    </ul>
+    <!-- <div class="logout">
+        <a href="/logout">Logout</a>
+    </div> -->
+</nav>
+ 
+
+<style>
+    *{ box-sizing: border-box;
+       margin: 0px;
+       padding: 0px;
+    }
+    .sidebar{
+        border: 1px solid black;
+        width: 20%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        border-radius: 10px;
+        padding: 10px;
+        /* background-color: aqua; */
+    }
+     .sidebar-title{
+        font-size: 50px;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    .d2{
+        font-size: 30px;
+        margin-left: 130px;
+        color: rgb(59, 159, 192);
+    }
+    .lite{
+        color: rgb(105, 172, 194);
+    }
+    .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color:black;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-top: 50px;
+}
+
+.nav-link:over {
+    background-color: #d3e0ea;
+}
+.icon{
+    width: 25px;
+    height: 25px;
+    margin-right:10px ;
+}
+</style>

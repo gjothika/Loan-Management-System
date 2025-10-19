@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User_Edit_loan</title>
+        {% include('side.html')%}
+        <style>
+            *{
+                box-sizing: border-box;
+         }
+        body{
+            text-align:center;
+        }
+        .box{
+             
+             margin-bottom: 20px;
+        }
+            .box label{
+                display: block;
+                margin: auto;
+            }
+            .box input{
+                width: 30%;
+                padding: 10px;
+                font-weight: bold;
+            }
+            select
+            {
+                 width: 30%;
+                padding: 10px;
+                font-weight: bold;
+            }
+            .box button{
+                width: 20%;
+                padding: 10px;
+            
+            }
+           
+            .login-container{
+                width: 50%;
+                margin:auto;
+                padding-bottom:10px ;
+                padding-top: 10px;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div class="box_container">
+        <h2>Edit for a Loan</h2>
+    <form method="POST" action='/user_edit_loan/{{data[0]}}'>
+       <div class="box">
+    <label>Loan Type</label>
+    <select name="loan_type">
+        <option value="" {% if data[2] == '' %} selected {% endif %}>Select loan type</option>
+        <option value="Personal" {% if data[2] == 'Personal' %} selected {% endif %}>Personal loan</option>
+        <option value="Home" {% if data[2] == 'Home' %} selected {% endif %}>Home loan</option>
+        <option value="Education" {% if data[2] == 'Education' %} selected {% endif %}>Education loan</option>
+        <option value="Business" {% if data[2] == 'Business' %} selected {% endif %}>Business loan</option>
+    </select>
+</div>
+
+        <div class="box">
+              <label>Amount</label>
+            <input type="number"  value="{{data[23]}}"  name="amount" placeholder="Amount">
+        </div>
+        <div class="box">
+            <label>Duration</label>
+            <select name="duration">
+                <option   value=" " {% if data[4] == '' %} selected {% endif %}> select</option>
+                <option   value="1 year" {% if data[4] == '1 year' %} selected {% endif %}>1 year</option>
+                <option   value="2 year" {% if data[4] == '2 year' %} selected {% endif %}>2 year</option>
+                <option   value="3 year" {% if data[4] == '3 year' %} selected {% endif %}>3 year</option>
+            </select>
+        </div>
+        <div class="box">
+            <label>Employment Status</label>
+            <input type="text"  value="{{data[5]}}"  name="employment_status" placeholder="Employment Status">
+        </div>
+        <div class="box">
+            <label>Income</label>
+            <input type="number"  value="{{data[6]}}"  name="income" placeholder="Monthly Income">
+        </div>
+        <div class="box">
+            <button type="submit">Update</button>
+        </div>
+        <div class="box">
+            <a href="/user_dasbord">Back to Dashboard</a>
+        </div>
+    </form>
+    </div>
+    </body>
+</html>

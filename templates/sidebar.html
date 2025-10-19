@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sidebar</title>
+        
+        <style>
+            *{
+                box-sizing: border-box;
+                padding: 0px;
+                margin: 0px;
+            }
+            .sidebar{
+                width: 20%;
+                border: 2px solid black;
+                height: 600px;
+                float: left;
+                position:fixed;
+                
+            }
+            .sidebar1{
+                width: 80%;
+                border: 2px solid black;
+                height: 600px;
+                float: left;
+            }
+            .d1{
+                margin-top: 20px;
+                margin-left: 60px;
+            }
+            .d2{
+                margin-left: 130px;
+                color: rgb(59, 159, 192);
+            }
+            .lite{
+                color: lightblue;
+            }
+            .butt{
+                padding: 15px 30px 15px 30px;
+                border-color: lightblue;
+                background-color: white;
+                color: rgb(13, 151, 197);
+                margin-top: 50px;
+                margin-left: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1 class="d1">dash<span class="lite">lite</span></h1>
+            <h3 class="d2">Loan</h3>
+            <a href="apply_loan.html"><button type="submit" class="butt">APPLY LOAN</button></a>
+            <a href="/logout" style="font-size: larger;">logout</a> 
+        </div>
+        <div class="sidebar1">
+
+        </div>
+        
+    </body>
+</html>

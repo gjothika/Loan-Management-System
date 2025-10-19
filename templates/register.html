@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <title>register</title>
+        <style>
+             *{
+                 box-sizing: border-box;
+                  }
+        body{
+            text-align:center;
+        }
+        .box{
+             margin-bottom: 20px;
+        }
+        .box label{
+            display: block;
+            margin: auto;
+        }
+        .box input{
+            width: 40%;
+            padding: 10px;
+            font-weight: bold;
+        }
+         .box1 input{
+            width: 30px;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .box button{
+            width: 20%;
+            padding: 10px;
+        }
+        .register-container{
+            width: 50%;
+            margin:auto;
+            padding-bottom:10px ;
+            padding-top: 10px;
+        }   
+        </style>
+    </head>
+    <body>
+
+        <span id="error" style='display:none' name="error">All fields are required!</span>
+       <form id="regform" method="POST" action='/submit'>
+        <div class="register-container">
+            <div class="box">
+                <h1>REGISTER PAGE</h1>
+            </div>
+            <div class="box">
+                <label>UserName:</label>
+                <input name="username" id="name" type="text" placeholder="enter the name">
+            </div>
+            <div class="box">
+                <label>Password:</label>
+                <input name="password"  id="password" type="password" placeholder="enter the password">
+            </div>
+            <div class="box">
+                <label>Email:</label>
+                <input name="email" id="email" type="email" placeholder="enter the email">
+            </div>
+            <div class="box">
+                <label>Phone_no:</label>
+                <input name="phone_no" id="phone" type="number"  maxlength=10 placeholder="enter the phone_no">
+            </div>
+            <div class="box1">
+                <label>Role:</label>
+                <input type="radio" value="1" name="role">User
+                <input type="radio" value="2" name="role">Admin    
+            </div><br>
+            <div class="box">
+                <button type="submit">submit</button>
+        </div>
+        </form>
+         </div>
+            <div class="box">
+            <p>Already a User?
+            <a href='/login' style="font-size: large;">login</a></p>
+            </div>
+
+
+            <script>
+
+
+$(document).ready(function(){
+    $('#regform').submit(function(e){
+        e.preventDefault();
+
+        name=$('#name').val().trim()
+        password=$('#password').val().trim()
+        email=$('#email').val().trim()
+        phone=$('#phone').val().trim()
+        role=$('input[name="role"]:checked').val()
+     
+
+
+        if(name=='' || password=='' || email=='' ||phone=='' || !rol){
+
+                        $('#error').show();
+
+        }else{
+           $('#error').hide();
+           this.submit();
+        }
+
+ });
+
+});
+                </script>
+    </body>
+</html>

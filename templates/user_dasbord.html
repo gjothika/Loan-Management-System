@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title> user_dasbord</title> -->
+        {% include('side.html') %}
+        <style>
+            body{
+                text-align: center;
+            }
+            .container{
+                margin-top: 40px;
+                margin-left: 350px;
+            }
+            h2{
+                margin: 20px;
+            }
+        </style>
+        <form action="/user_dasbord" method="POST">
+        <h2>Welcome,{{session['username']}}</h2>
+        <p>This is your loan user dasbord</p>
+        <!-- {{data}} -->
+         <div class="container">
+        <table border="1" align="center">
+            <tr>
+                <th>S.No</th>
+                <th>Loan Type</th>
+                <th>Amount</th>
+                <th>Duration</th>
+                <th>Employment Status</th>
+                <th>Income</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>Application Status</th>
+            </tr> 
+            <tbody>
+              {% for i in data%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td><a href="/user_edit/{{i[0]}}">Edit</a>
+                    {% if i[7]=='ACTIVE' %}
+                  <a href="/user_delete/{{i[0]}}" onclick="return alert('Are you sure?')">Delete</a>
+                {%else %}
+                   <a href="/user_active/{{i[0]}}" onclick="return alert('Are you sure?')">Active</a></td>
+             {%endif%}
+              <td>{{i[8]}}</td>
+            </tr>
+               {% endfor%}
+               </tbody>
+        </table>
+        <!-- <br><br>
+        <a href="/logout" style="font-size: larger;">logout</a><br><br><br>
+        <a href="/apply_loan" style="font-size: larger;">apply loan</a> -->
+        </form>
+        
+        </div>
+    </body>
+</html>

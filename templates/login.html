@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login</title>
+        <style>
+             *{
+                 box-sizing: border-box;
+         }
+        body{
+            text-align:center;
+        }
+        .box{
+             
+             margin-bottom: 20px;
+        }
+            .box label{
+                display: block;
+                margin: auto;
+            }
+            .box input{
+                width: 40%;
+                padding: 10px;
+                font-weight: bold;
+            }
+            .box button{
+                width: 20%;
+                padding: 10px;
+            
+            }
+           
+            .login-container{
+                width: 50%;
+                margin:auto;
+                padding-bottom:10px ;
+                padding-top: 10px;
+            }
+        
+            
+        </style>
+    </head>
+    <body>
+       <form method="POST" action='/login'>
+        <div class="login-container">
+            <div class="box">
+              <h1>LOGIN PAGE</h1>
+            </div>
+            <div class="box">
+                <label>UserName:</label>
+                <input name="username" type="text" placeholder="enter the name">
+            </div>
+            <div class="box">
+                <label>Password:</label>
+                <input name="password" type="password" placeholder="enter the password">
+            </div>
+            <div class="box">
+                <button type="submit">login</button>
+            </div>
+        </div>
+        </form>
+    </body>
+</html>
